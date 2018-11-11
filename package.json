@@ -1,0 +1,10 @@
+{
+  "description": "runs javascript and shell scripts in sequence",
+  "main": "lib/scripter.js",
+  "scripts": {
+    "install:arch": "npm install && node examples/arch-linux-install/install.js"
+  },
+  "dependencies": {
+    "read": "^1.0.7"
+  }
+}
