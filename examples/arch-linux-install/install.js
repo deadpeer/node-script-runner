@@ -126,7 +126,7 @@ const steps = [
   },
 
   {
-    name: 'install nvidia driver',
+    name: 'install nvidia driver (otherwise will install open source intel/nvidia drivers)',
     type: 'read',
     conditional: state => state.xorg === true,
     instructions: {
