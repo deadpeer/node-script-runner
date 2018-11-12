@@ -230,7 +230,7 @@ Include = /etc/pacman.d/mirrorlist`
   },
 
   {
-    name: 'install open source drivers',
+    name: 'install open source A/V drivers',
     type: 'shell',
     conditional: secrets.xorg === true,
     instructions: {
@@ -240,6 +240,7 @@ Include = /etc/pacman.d/mirrorlist`
         '--noconfirm',
         'xf86-video-fbdev',
         'xf86-video-vesa',
+        'pulseaudio',
         'mesa',
       ],
       onOutput: [
