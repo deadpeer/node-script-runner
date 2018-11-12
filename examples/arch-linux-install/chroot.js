@@ -530,6 +530,30 @@ GRUB_ENABLE_CRYPTODISK=y`
       ],
     },
   },
+  
+  {
+    name: 'set terminal font',
+    type: 'shell',
+    instructions: {
+      command: 'sh',
+      args: [
+        '-c',
+        'echo "FONT=ter-116n" > /etc/vconsole.conf',
+      ],
+    },
+  },
+  
+    {
+    name: 'set terminal font map',
+    type: 'shell',
+    instructions: {
+      command: 'sh',
+      args: [
+        '-c',
+        'echo "FONT=ter-116n" >> /etc/vconsole.conf',
+      ],
+    },
+  },
 
   {
     name: `copy install directory to ~/.configure for user '${secrets.userName}'`,
