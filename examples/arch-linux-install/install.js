@@ -109,7 +109,7 @@ const steps = [
     name: 'install xorg',
     type: 'read',
     instructions: {
-      query: 'install xorg? (y/n):',
+      query: 'install display server? (y/n):',
       onResponse: ({
         response,
         state,
