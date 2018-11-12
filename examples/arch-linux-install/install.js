@@ -9,27 +9,6 @@ const run = require('../../lib/scripter')
 
 const steps = [
   {
-    name: 'reboot on finish',
-    type: 'read',
-    instructions: {
-      query: 'reboot on finish? (y/n):',
-      defaultValue: 'y',
-      onResponse: ({
-        response,
-        state,
-      }) => {
-        const choice = response.toLowerCase()
-
-        if (choice === 'y' || choice === 'ye' || choice === 'yes') {
-          state.reboot = true
-        } else {
-          state.reboot = false
-        }
-      },
-    },
-  },
-
-  {
     name: 'get hostname',
     type: 'read',
     instructions: {
@@ -110,6 +89,7 @@ const steps = [
     type: 'read',
     instructions: {
       query: 'install display server? (y/n):',
+      defaultValue: 'y',
       onResponse: ({
         response,
         state,
@@ -131,6 +111,7 @@ const steps = [
     conditional: state => state.xorg === true,
     instructions: {
       query: 'install nvidia driver? (y/n):',
+      defaultValue: 'n',
       onResponse: ({
         response,
         state,
@@ -151,6 +132,7 @@ const steps = [
     type: 'read',
     instructions: {
       query: 'is this a virtualbox guest? (y/n):',
+      defaultValue: 'n',
       onResponse: ({
         response,
         state,
@@ -161,6 +143,27 @@ const steps = [
         } else {
           state.vbox = false
           state.vboxGfx = false
+        }
+      },
+    },
+  },
+
+  {
+    name: 'reboot on finish',
+    type: 'read',
+    instructions: {
+      query: 'reboot on finish? (y/n):',
+      defaultValue: 'y',
+      onResponse: ({
+        response,
+        state,
+      }) => {
+        const choice = response.toLowerCase()
+
+        if (choice === 'y' || choice === 'ye' || choice === 'yes') {
+          state.reboot = true
+        } else {
+          state.reboot = false
         }
       },
     },
