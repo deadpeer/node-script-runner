@@ -238,7 +238,7 @@ Include = /etc/pacman.d/mirrorlist`
       args: [
         '-S',
         '--noconfirm',
-        'xf86-video-nouveau',
+        'xf86-video-vesa',
         'mesa',
       ],
       onOutput: [
