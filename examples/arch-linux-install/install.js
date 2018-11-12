@@ -137,6 +137,8 @@ const steps = [
         response,
         state,
       }) => {
+        const choice = response.toLowerCase()
+
         if (choice === 'y' || choice === 'ye' || choice === 'yes') {
           state.vbox = true
           state.vboxGfx = state.xorg ? true : false
