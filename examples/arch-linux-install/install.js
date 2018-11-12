@@ -787,6 +787,7 @@ const steps = [
         'reflector',
         'vim',
         'zsh',
+        'terminus-font',
       ],
       onOutput: [
         {
