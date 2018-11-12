@@ -232,12 +232,13 @@ Include = /etc/pacman.d/mirrorlist`
   {
     name: 'install open source drivers',
     type: 'shell',
-    conditional: secrets.nvidia !== true && secrets.xorg === true,
+    conditional: secrets.xorg === true,
     instructions: {
       command: 'pacman',
       args: [
         '-S',
         '--noconfirm',
+        'xf86-video-fbdev',
         'xf86-video-vesa',
         'mesa',
       ],
