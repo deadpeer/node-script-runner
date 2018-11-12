@@ -88,7 +88,7 @@ const steps = [
     name: 'install xorg',
     type: 'read',
     instructions: {
-      query: 'install display server? (y/n):',
+      query: 'install xorg display server? (y/n):',
       defaultValue: 'y',
       onResponse: ({
         response,
@@ -363,7 +363,7 @@ const steps = [
   },
 
   {
-    name: state => `creating LVM partition on device ${state.device.name}`,
+    name: state => `creating lvm partition on device ${state.device.name}`,
     type: 'shell',
     instructions: {
       command: 'parted',
