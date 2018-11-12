@@ -106,7 +106,7 @@ const steps = [
   },
 
   {
-    name: 'install nvidia driver (otherwise will install open source intel/nvidia drivers)',
+    name: 'install nvidia driver',
     type: 'read',
     conditional: state => state.xorg === true,
     instructions: {
@@ -128,7 +128,7 @@ const steps = [
   },
 
   {
-    name: 'get virtualbox settings',
+    name: 'install virtualbox guest packages',
     type: 'read',
     instructions: {
       query: 'is this a virtualbox guest? (y/n):',
@@ -136,7 +136,7 @@ const steps = [
       onResponse: ({
         response,
         state,
-      }) = {
+      }) => {
         if (choice === 'y' || choice === 'ye' || choice === 'yes') {
           state.vbox = true
           state.vboxGfx = state.xorg ? true : false
@@ -306,8 +306,8 @@ const steps = [
       onOutput: [
         {
           perform: ({ output }) => console.log(output),
-        }
-      ]
+        },
+      ],
     },
   },
 
