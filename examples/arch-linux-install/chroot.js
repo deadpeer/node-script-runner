@@ -293,6 +293,38 @@ Include = /etc/pacman.d/mirrorlist`
   },
 
   {
+    name: 'install virtualbox guest packages',
+    type: 'shell',
+    conditional: secrets.vbox === true,
+    instructions: {
+      command: 'pacman',
+      args: [
+        '-S',
+        '--noconfirm',
+        secrets.vboxGfx === true ? 'virtualbox-guest-utils-nox' : 'virtualbox-guest-utils',
+        'virtualbox-guest-modules-arch',
+      ],
+      onOutput: [
+        {
+          perform: ({ output }) => console.log(output),
+        },
+      ],
+    },
+  },
+  {
+    name: 'enable virtualbox services',
+    type: 'shell',
+    conditional: secrets.vbox === true,
+    instructions: {
+      command: 'systemctl',
+      args: [
+        'enable',
+        'vboxservice',
+      ],
+    },
+  },
+
+  {
     name: 'set nvidia config',
     type: 'shell',
     conditional: secrets.nvidia === true,

@@ -3,8 +3,8 @@ const fs = require('fs')
 
 const run = require('../../lib/scripter')
 
+// TODO: add '(SKIP)' to names for items that don't pass conditional
 // TODO: prompt for GPT or MBR
-// TODO: prompt for virtualbox guest utils
 // TODO: prompt for zeroing disk, else partition accordingly (ask user if they're sure they want to delete everything on disk)
 
 const steps = [
@@ -141,6 +141,26 @@ const steps = [
           state.nvidia = true
         } else {
           state.nvidia = false
+        }
+      },
+    },
+  },
+
+  {
+    name: 'get virtualbox settings',
+    type: 'read',
+    instructions: {
+      query: 'is this a virtualbox guest? (y/n):',
+      onResponse: ({
+        response,
+        state,
+      }) = {
+        if (choice === 'y' || choice === 'ye' || choice === 'yes') {
+          state.vbox = true
+          state.vboxGfx = state.xorg ? true : false
+        } else {
+          state.vbox = false
+          state.vboxGfx = false
         }
       },
     },
