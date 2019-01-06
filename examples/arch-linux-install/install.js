@@ -877,34 +877,6 @@ swap\t/dev/main/swap\t/dev/urandom\t\tswap,cipher=aes-xts-plain64,size=256`
   },
 
   {
-    name: 'install tj/n',
-    type: 'shell',
-    instructions: {
-      command: 'chroot',
-      args: [
-        '/mnt',
-        'npm',
-        'install',
-        '--global',
-        'n',
-      ],
-    },
-  },
-
-  {
-    name: 'install latest node in root',
-    type: 'shell',
-    instructions: {
-      command: 'chroot',
-      args: [
-        '/mnt',
-        'n',
-        'latest',
-      ],
-    },
-  },
-
-  {
     name: 'copy secrets to install directory',
     type: 'script',
     instructions: {
