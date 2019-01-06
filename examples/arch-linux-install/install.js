@@ -5,7 +5,6 @@ const run = require('../../lib/scripter')
 
 // TODO: add '(SKIP)' to names for items that don't pass conditional
 // TODO: prompt for GPT or MBR
-// TODO: prompt for zeroing disk, else partition accordingly (ask user if they're sure they want to delete everything on disk)
 
 const steps = [
   {
@@ -150,6 +149,27 @@ const steps = [
     },
   },
 
+  {
+    name: 'zero disk',
+    type: 'read',
+    instructions: {
+      query: 'write over disk with zeros? (y/n):',
+      defaultValue: 'y',
+      onResponse: ({
+        response,
+        state,
+      }) => {
+        const choice = response.toLowerCase()
+
+        if (choice === 'y' || choice === 'ye' || choice === 'yes') {
+          state.zero = true
+        } else {
+          state.zero = false
+        }
+      },
+    },
+  },
+  
   {
     name: 'reboot on finish',
     type: 'read',
@@ -298,6 +318,7 @@ const steps = [
   {
     name: state => `zeroing device ${state.device.name} (this will take a while)`,
     type: 'shell',
+    conditional: state => state.zero === true,
     instructions: {
       command: 'dd',
       args: [
