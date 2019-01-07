@@ -418,7 +418,7 @@ HOOKS=(base udev autodetect keyboard keymap consolefont modconf block lvm2 encry
   },
 
   {
-    name: 'install latest node in root',
+    name: 'install latest node version',
     type: 'shell',
     instructions: {
       command: 'n',
