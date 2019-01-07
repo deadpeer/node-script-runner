@@ -405,6 +405,28 @@ HOOKS=(base udev autodetect keyboard keymap consolefont modconf block lvm2 encry
   },
 
   {
+    name: 'install tj/n',
+    type: 'shell',
+    instructions: {
+      command: 'npm',
+      args: [
+        'install',
+        '--global',
+        'n',
+      ],
+    },
+  },
+
+  {
+    name: 'install latest node in root',
+    type: 'shell',
+    instructions: {
+      command: 'n',
+      args: ['latest'],
+    },
+  },
+  
+  {
     name: 'install pikaur',
     type: 'shell',
     instructions: {
