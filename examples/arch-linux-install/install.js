@@ -87,7 +87,7 @@ const steps = [
     name: 'create guest user',
     type: 'read',
     instructions: {
-      query: state => `create a guest user? (y/n):`,
+      query: 'create a guest user? (y/n):',
       defaultValue: 'y',
       onResponse: ({
         response,
