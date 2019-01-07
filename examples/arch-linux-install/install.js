@@ -84,6 +84,41 @@ const steps = [
   },
 
   {
+    name: 'create guest user',
+    type: 'read',
+    instructions: {
+      query: state => `create a guest user? (y/n):`,
+      defaultValue: 'y',
+      onResponse: ({
+        response,
+        state,
+      }) => {
+        const choice = response.toLowerCase()
+
+        if (choice === 'y' || choice === 'ye' || choice === 'yes') {
+          state.guest = true
+        } else {
+          state.guest = false
+        }
+      },
+    },
+  },
+  
+  {
+    name: 'get guest password',
+    type: 'read',
+    conditional: state => state.guest === true,
+    instructions: {
+      silent: true,
+      query: `enter a password for user 'guest':`,
+      onResponse: ({
+        response,
+        state,
+      }) => state.guestPassword = response,
+    },
+  },
+  
+  {
     name: 'install xorg',
     type: 'read',
     instructions: {
