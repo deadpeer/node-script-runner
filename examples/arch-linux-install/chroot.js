@@ -405,6 +405,16 @@ HOOKS=(base udev autodetect keyboard keymap consolefont modconf block lvm2 encry
   },
   
   {
+    name: `create group 'guest'`,
+    type: 'shell',
+    conditional: secrets.guest === true,
+    instructions: {
+      command: 'groupadd',
+      args: ['guest'],
+    },
+  },
+    
+  {
     name: `create user 'guest'`,
     type: 'shell',
     conditional: secrets.guest === true,
@@ -418,16 +428,6 @@ HOOKS=(base udev autodetect keyboard keymap consolefont modconf block lvm2 encry
         '/bin/bash',
         'guest',
       ],
-    },
-  },
-  
-  {
-    name: `create group 'guest'`,
-    type: 'shell',
-    conditional: secrets.guest === true,
-    instructions: {
-      command: 'groupadd',
-      args: ['guest'],
     },
   },
   
