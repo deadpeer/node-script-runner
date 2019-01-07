@@ -12,4 +12,4 @@ to install arch linux from a live disk, run the following:
 
 or as a oneliner:
 
-`pacman -Sy --noconfirm nodejs npm git && git clone https://github.com/deadpeer/scripter && cd scripter && npm run install:arch`
+`unsetopt correct_all && pacman -Sy --noconfirm nodejs npm git && git clone https://github.com/deadpeer/scripter && cd scripter && npm run install:arch`
