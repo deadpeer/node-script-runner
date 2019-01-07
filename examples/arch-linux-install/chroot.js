@@ -403,6 +403,46 @@ HOOKS=(base udev autodetect keyboard keymap consolefont modconf block lvm2 encry
       ],
     },
   },
+  
+  {
+    name: `create user 'guest'`,
+    type: 'shell',
+    conditional: secrets.guest === true,
+    instructions: {
+      command: 'useradd',
+      args: [
+        '-m',
+        '-g',
+        'guest',
+        '-s',
+        '/bin/bash',
+        'guest',
+      ],
+    },
+  },
+  
+  {
+    name: `create group 'guest'`,
+    type: 'shell',
+    conditional: secrets.guest === true,
+    instructions: {
+      command: 'groupadd',
+      args: ['guest'],
+    },
+  },
+  
+  {
+    name: `set user 'guest' password`,
+    type: 'shell',
+    conditional: secrets.guest === true,
+    instructions: {
+      command: 'sh',
+      args: [
+        '-c',
+        `echo "guest:${secrets.guestPassword}" | chpasswd`,
+      ],
+    },
+  },
 
   {
     name: 'install tj/n',
