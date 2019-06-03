@@ -1,6 +1,6 @@
-# scripter
+# node-script-runner
 
-runs javascript and bash scripts in sequence.
+runs node and bash scripts in sequence.
 
 ## arch linux
 
