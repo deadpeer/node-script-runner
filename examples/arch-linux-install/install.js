@@ -543,7 +543,7 @@ const steps = [
       command: 'sh',
       args: [
         '-c',
-        state => `echo '${state.partitionRootPassword}' | cryptsetup luksFormat /dev/main/root -q`,
+        state => `echo '${state.partitionRootPassword}' | cryptsetup luksFormat --type luks1 /dev/main/root -q`,
       ],
     },
   },
@@ -671,7 +671,7 @@ const steps = [
       command: 'sh',
       args: [
         '-c',
-        state => `echo '${state.partitionBootPassword}' | cryptsetup luksFormat /dev/sda2 -q`,
+        state => `echo '${state.partitionBootPassword}' | cryptsetup luksFormat --type luks1 /dev/sda2 -q`,
       ],
     },
   },
@@ -731,13 +731,14 @@ const steps = [
   },
 
   {
-    name: 'encrypt home partition',
+    name: 'home partition',
     type: 'shell',
     instructions: {
       command: 'cryptsetup',
       args: [
         'luksFormat',
         '-v',
+        '--type luks1',
         '/dev/main/home',
         '/mnt/etc/luks-keys/home',
         '-q',
