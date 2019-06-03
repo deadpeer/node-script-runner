@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const run = require('../../lib/scripter')
+const run = require('../../lib/run')
 
 const secrets = JSON.parse(fs.readFileSync('/root/install/secrets.json', 'utf-8').toString())
 
