@@ -738,8 +738,8 @@ const steps = [
       args: [
         'luksFormat',
         '-v',
-        '--type luks1',
         '/dev/main/home',
+        '--type luks1',
         '/mnt/etc/luks-keys/home',
         '-q',
       ],
