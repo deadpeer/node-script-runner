@@ -543,7 +543,7 @@ const steps = [
       command: 'sh',
       args: [
         '-c',
-        state => `echo '${state.partitionRootPassword}' | cryptsetup luksFormat --type luks2 /dev/main/root -q`,
+        state => `echo '${state.partitionRootPassword}' | cryptsetup luksFormat /dev/main/root -q`,
       ],
     },
   },
