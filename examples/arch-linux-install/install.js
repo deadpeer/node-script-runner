@@ -1,7 +1,7 @@
 const https = require('https')
 const fs = require('fs')
 
-const run = require('../../lib/scripter')
+const run = require('../../lib/run')
 
 // TODO: add '(SKIP)' to names for items that don't pass conditional
 // TODO: prompt for GPT or MBR
