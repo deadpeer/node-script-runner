@@ -737,8 +737,6 @@ const steps = [
       command: 'cryptsetup',
       args: [
         'luksFormat',
-        '--type',
-        'luks2',
         '-v',
         '/dev/main/home',
         '/mnt/etc/luks-keys/home',
