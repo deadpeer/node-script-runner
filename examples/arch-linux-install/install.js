@@ -869,6 +869,7 @@ const steps = [
         'vim',
         'zsh',
         'terminus-font',
+        'linux-headers',
       ],
       onOutput: [
         {
