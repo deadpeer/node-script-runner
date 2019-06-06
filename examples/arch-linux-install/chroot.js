@@ -238,8 +238,6 @@ Include = /etc/pacman.d/mirrorlist`
       args: [
         '-S',
         '--noconfirm',
-        'xf86-video-fbdev',
-        'xf86-video-vesa',
         'pulseaudio',
         'mesa',
       ],
