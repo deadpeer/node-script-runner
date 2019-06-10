@@ -299,7 +299,7 @@ Include = /etc/pacman.d/mirrorlist`
       args: [
         '-S',
         '--noconfirm',
-        secrets.vboxGfx === true ? 'virtualbox-guest-utils-nox' : 'virtualbox-guest-utils',
+        secrets.vboxGfx === true ? 'virtualbox-guest-utils' : 'virtualbox-guest-utils-nox',
         'virtualbox-guest-modules-arch',
       ],
       onOutput: [
